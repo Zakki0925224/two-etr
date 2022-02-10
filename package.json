@@ -1,0 +1,56 @@
+{
+  "name": "two-etr",
+  "productName": "The World Order",
+  "description": "",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Zakki",
+    "email": "zakki0925224@gmail.com"
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "build": "run-s build:*",
+    "dev:tsc": "tsc -w -p tsconfig.main.json",
+    "dev:webpack": "cross-env NODE_ENV=\"development\" webpack --progress",
+    "dev:electron": "wait-on ./dist/index.html && cross-env NODE_ENV=\"development\" electron .",
+    "build:webpack": "cross-env NODE_ENV=\"production\" webpack --progress",
+    "build:builder": "ts-node ./electron-builder.ts"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.16",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.6.0",
+    "electron": "^17.0.0",
+    "electron-builder": "^22.14.13",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-search-devtools": "^1.5.3",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5",
+    "wait-on": "^6.0.0",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "optionalDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  }
+}

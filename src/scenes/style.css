@@ -13,6 +13,7 @@ html, body{
 
 button{
   font-family: ShareTechMono, sans-serif;
+  font-size: 16px;
   background-color: rgb(0, 43, 43);
   color: aqua;
   text-transform: uppercase;
@@ -52,7 +53,6 @@ select:hover{
   color: rgba(aqua, 0.5);
 }
 
-
 .window-container{
   position: absolute;
   border: 1px solid;
@@ -60,4 +60,20 @@ select:hover{
   padding: 5px;
   background-color: black;
   margin: 1px;
+}
+
+.menu-container
+{
+  position: absolute;
+  border: 1px solid;
+  color: aqua;
+  padding: 5px;
+  background-color: black;
+  margin: 1px;
+  top: 50%;
+  left: 50%;
+  display: inline-grid;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: 200px;
 }

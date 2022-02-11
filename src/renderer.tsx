@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { Title } from './scenes/title';
+import { Play } from './scenes/play';
+import { Loading } from './scenes/loading';
 
-import './styles.css';
+type SceneName = 'title' | 'play' | 'loading';
 
-const App = () => {
+const App = () =>
+{
+  const [scene, setScene] = useState<SceneName>('title');
+
   return (
-    <div className="container">
-      <h1>Hello.</h1>
+    <div>
+      {scene === 'title' && <Title changeSceneToPlay={() => setScene('play')} changeSceneToLoading={() => setScene('loading')}/>}
+      {scene === 'play' && <Play changeSceneToTitle={() => setScene('title')} changeSceneToLoading={() => setScene('loading')}/>}
+      {scene === 'loading' && <Loading changeSceneToTitle={() => setScene('title')} changeSceneToPlay={() => setScene('play')}/>}
     </div>
   );
 };

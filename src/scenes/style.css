@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "ShareTechMono";
+  src: url(../../assets/fonts/ShareTechMono-Regular.ttf);
+}
+
+html, body{
+  font-family: ShareTechMono, sans-serif;
+  background-color: black;
+  color: aqua;
+}
+
+/* button */
+
+button{
+  font-family: ShareTechMono, sans-serif;
+  background-color: rgb(0, 43, 43);
+  color: aqua;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 1px;
+  padding: .4em 1em;
+  border: 1px solid;
+}
+
+button:hover{
+  background-color: rgba(0, 43, 43, 0.5);
+  color: rgba(aqua, 0.5);
+}
+
+button:disabled{
+  background-color: rgba(0, 43, 43, 0.4);
+  color: rgba(aqua, 0.4);
+}
+
+.title-buttons{
+  width: 100%;
+}
+
+/* select */
+
+select{
+  font-family: ShareTechMono, sans-serif;
+  background-color: rgb(0, 43, 43);
+  color: aqua;
+  margin: 1px;
+  padding: .4em 1em;
+  border: 1px solid;
+}
+
+select:hover{
+  background-color: rgba(0, 43, 43, 0.5);
+  color: rgba(aqua, 0.5);
+}
+
+
+.window-container{
+  position: absolute;
+  border: 1px solid;
+  color: aqua;
+  padding: 5px;
+  background-color: black;
+  margin: 1px;
+}

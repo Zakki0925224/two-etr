@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-
+import { useEffect } from 'react';
 import './style.css';
 
 type Props =
@@ -8,12 +7,17 @@ type Props =
     changeSceneToPlay: () => void;
 }
 
-export const Loading: FC<Props> = ({changeSceneToTitle, changeSceneToPlay}) =>
+export const Loading = (props: Props) =>
 {
+    useEffect(() =>
+    {
+        window.api.loadGameData();
+    }, []);
+
     return (
         <div className="container">
             <h1>Loading</h1>
-            <button onClick={changeSceneToPlay}>ToPlay</button>
+            <button onClick={props.changeSceneToPlay}>ToPlay</button>
         </div>
     );
 };

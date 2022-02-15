@@ -8,12 +8,12 @@ type Props =
     changeSceneToLoading: () => void;
 }
 
-export const Play: FC<Props> = ({changeSceneToTitle, changeSceneToLoading}) =>
+export const Play = (props: Props) =>
 {
     return (
         <div className="container">
             <h1>Play</h1>
-            <button onClick={changeSceneToTitle}>ToTitle</button>
+            <button onClick={props.changeSceneToTitle}>ToTitle</button>
         </div>
     );
 };

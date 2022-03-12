@@ -1,0 +1,17 @@
+[[nations]]
+    code = "JPN"
+    ideology_code = "REA"
+    has_provinces = ["path35480", "path35380", "path35470", "path35475", "path35485", "path35494", "path35492", "path35490", "path35359", "path35377", "path35394", "JP-tokyo", "path35365", "path35372", "path35387", "path35357", "path35209", "path34364", "path35131", "JP-hokkaido", "path34299", "path34314", "path34309", "path34319", "path34304", "path34290", "path34836", "path34843", "path34834", "JP-nara", "path34858", "JP-osaka", "JP-kyoto", "path34427", "path34655", "path34662", "path34667", "path34400", "JP-nagasaki", "path34390", "path34372", "path34413", "path34411", "path34717", "JP-hiroshima", "path34863", "path34693", "path35382", "path34721", "path34719"]
+    capital_province = "JP-tokyo"
+    member_of_un = false
+
+    [nations.gov]
+        [[nations.gov.parties]]
+        ideology_code = "REA"
+        leader = "Douglas MacArthur"
+        party_name = "General Headquarters, the Supreme Commander for the Allied Powers"
+
+        [[nations.gov.parties]]
+        ideology_code = "CON"
+        leader = "Shigeru Yoshida"
+        party_name = "Minshu Jiyu To"

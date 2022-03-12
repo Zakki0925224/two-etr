@@ -1,0 +1,24 @@
+[scenario]
+name = "Cold War"
+description = ""
+start_date = "1949.1.1"
+
+[[scenario.great_powers]]
+code = "GBR"
+description = ""
+
+[[scenario.great_powers]]
+code = "CHN"
+description = ""
+
+[[scenario.great_powers]]
+code = "FRA"
+description = ""
+
+[[scenario.great_powers]]
+code = "SOV"
+description = ""
+
+[[scenario.great_powers]]
+code = "USA"
+description = ""

@@ -1,0 +1,57 @@
+# 左翼
+# * 無政府主義 - anarchism - ANA
+# * 共産主義 - communism - COM
+# * 急進的社会主義 - socialism - SOC
+# 中道
+# * 社会民主主義 - social-democratic - SDM
+# * 自由民主主義 - liberal-democratic - LIB
+# * 保守主義 - conservatism - CON
+# 右翼
+# * 反動主義 - reactionaly - REA
+# * 国家主義 - nationalism - NAT
+# * 専制 - autocracy - AUT
+
+[[ideologies]]
+    code = "ANA"
+    color_code = "8c0000"
+    allow_election = false
+
+[[ideologies]]
+    code = "COM"
+    color_code = "ff0000"
+    allow_election = false
+
+[[ideologies]]
+    code = "SOC"
+    color_code = "ff006f"
+    allow_election = false
+
+[[ideologies]]
+    code = "SDM"
+    color_code = "ffa3a5"
+    allow_election = true
+
+[[ideologies]]
+    code = "LIB"
+    color_code = "ffff00"
+    allow_election = true
+
+[[ideologies]]
+    code = "CON"
+    color_code = "0000ff"
+    allow_election = true
+
+[[ideologies]]
+    code = "REA"
+    color_code = "ffffff"
+    allow_election = true
+
+[[ideologies]]
+    code = "NAT"
+    color_code = "646464"
+    allow_election = false
+
+[[ideologies]]
+    code = "AUT"
+    color_code = "000000"
+    allow_election = false

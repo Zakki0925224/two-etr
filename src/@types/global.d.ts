@@ -9,4 +9,5 @@ declare global
 export interface IAPI
 {
     loadGameData(): void;
+    getLoadFilePath(): string[];
 }

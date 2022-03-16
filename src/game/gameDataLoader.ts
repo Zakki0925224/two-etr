@@ -1,7 +1,9 @@
 import path from 'path';
+import * as fs from 'fs';
+import toml from 'toml';
 export class GameDataLoader
 {
-    dataDirPath: string;
+    public dataDirPath: string;
 
     constructor()
     {
@@ -14,6 +16,15 @@ export class GameDataLoader
         }
 
         this.dataDirPath = path.resolve(dPath, "gameData");
-        console.log(this.dataDirPath);
+    }
+
+    public getAllFilePath(rootDirPath: string): string[]
+    {
+        return fs.readdirSync(rootDirPath, { withFileTypes: true }).flatMap(dirent => dirent.isFile() ? [`${rootDirPath}/${dirent.name}`] : this.getAllFilePath(`${rootDirPath}/${dirent.name}`));
+    }
+
+    public readFile(filePath: string): string
+    {
+        return fs.readFileSync(filePath, "utf-8");
     }
 }

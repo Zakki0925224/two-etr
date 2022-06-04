@@ -26,7 +26,7 @@ export const Title = (props: Props) =>
     return (
         <div className="container">
             <h1>Title</h1>
-            {/* <button onClick={props.changeSceneToLoading}>ToLoading</button> */}
+            <button onClick={props.changeSceneToLoading}>ToLoading</button>
             {menu === 'main' && <MainMenu changeMenuToMain={() => setMenu('main')} changeMenuToPlay={() => setMenu('play')} changeMenuToOption={() => setMenu('option')} changeMenuToMod={() => setMenu('mod')}/>}
             {menu === 'play' && <PlayMenu changeMenuToMain={() => setMenu('main')} changeMenuToPlay={() => setMenu('play')} changeMenuToOption={() => setMenu('option')} changeMenuToMod={() => setMenu('mod')}/>}
             {menu === 'option' && <OptionMenu changeMenuToMain={() => setMenu('main')} changeMenuToPlay={() => setMenu('play')} changeMenuToOption={() => setMenu('option')} changeMenuToMod={() => setMenu('mod')}/>}

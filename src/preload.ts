@@ -8,12 +8,7 @@ contextBridge.exposeInMainWorld(
     {
         loadGameData(): void
         {
-            loader.getAllFilePath(loader.dataDirPath).forEach(filePath => console.log(loader.readFile(filePath)));
+            loader.loadGameData();
         },
-
-        getLoadFilePath(): string[]
-        {
-            return loader.getAllFilePath(loader.dataDirPath);
-        }
     }
 );

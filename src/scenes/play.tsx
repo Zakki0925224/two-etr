@@ -13,7 +13,7 @@ export const Play = (props: Props) =>
     return (
         <div className="container">
             <h1>Play</h1>
-            {/* <button onClick={props.changeSceneToTitle}>ToTitle</button> */}
+            <button onClick={props.changeSceneToTitle}>ToTitle</button>
         </div>
     );
 };

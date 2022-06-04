@@ -8,7 +8,7 @@ type SceneName = 'title' | 'play' | 'loading';
 
 const App = () =>
 {
-  const [scene, setScene] = useState<SceneName>('loading');
+  const [scene, setScene] = useState<SceneName>('title');
 
   return (
     <div>

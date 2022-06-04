@@ -10,5 +10,18 @@ contextBridge.exposeInMainWorld(
         {
             loader.loadGameData();
         },
+
+        getPolygonsMapData(): object
+        {
+            const data = loader.getDataList().find((v) => v.getId() === 'polygon_map');
+            console.log(data);
+            return data?.getData();
+        },
+
+        getPlacesMapData(): object
+        {
+            const data = loader.getDataList().find((v) => v.getId() === 'place_map');
+            return data?.getData();
+        }
     }
 );

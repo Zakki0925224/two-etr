@@ -9,4 +9,6 @@ declare global
 export interface IAPI
 {
     loadGameData(): void;
+    getPolygonsMapData(): object;
+    getPlacesMapData(): object;
 }

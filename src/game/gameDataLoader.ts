@@ -2,18 +2,21 @@ import path from 'path';
 import * as fs from 'fs';
 import toml from 'toml';
 
-type DataCategory = 'map' | 'world' | 'local' | 'gfx' | 'unused';
+export type DataCategory = 'map' | 'world' | 'local' | 'gfx' | 'unused';
+export type DataFileId = 'ideology' | 'nation' | 'scenario' | 'ui' | 'place_map' | 'polygon_map' | 'any';
 
-class GameData
+export class GameData
 {
     private filePath: string;
     private category: DataCategory;
+    private id: DataFileId
     private data: any;
 
-    constructor(filePath: string, category: DataCategory, data: any)
+    constructor(filePath: string, category: DataCategory, id: DataFileId, data: any)
     {
         this.filePath = filePath;
         this.category = category;
+        this.id = id;
         this.data = data;
     }
 
@@ -25,6 +28,11 @@ class GameData
     public getCategory(): DataCategory
     {
         return this.category;
+    }
+
+    public getId(): DataFileId
+    {
+        return this.id;
     }
 
     public getData(): any
@@ -63,26 +71,77 @@ export class GameDataLoader
         // set data category
         filePath.forEach((fpath) =>
         {
-            if (path.basename(path.resolve(path.resolve(fpath, ".."), "..")) == "local" && path.extname(fpath) == Ex_Toml)
+            const extname = path.extname(fpath);
+            const filename = path.basename(fpath, extname);
+            const lastDirname = path.basename(path.resolve(fpath, ".."));
+            const oneUpperDirname = path.basename(path.resolve(path.resolve(fpath, ".."), ".."));
+
+            if (oneUpperDirname == "local" && extname == Ex_Toml)
             {
-                this.dataList.push(new GameData(fpath, 'local', this.parseToml(fpath)));
+                if (filename == "ideology")
+                {
+                    this.dataList.push(new GameData(fpath, 'local', 'ideology', this.parseToml(fpath)));
+                }
+                else if (filename == "nation")
+                {
+                    this.dataList.push(new GameData(fpath, 'local', 'nation', this.parseToml(fpath)));
+                }
+                else if (filename == "ui")
+                {
+                    this.dataList.push(new GameData(fpath, 'local', 'ui', this.parseToml(fpath)));
+                }
+                else
+                {
+                    this.dataList.push(new GameData(fpath, 'local', 'any', this.parseToml(fpath)));
+                }
             }
-            else if (path.basename(path.resolve(fpath, "..")) == "map" && path.extname(fpath) == Ex_GeoJSON)
+            else if (lastDirname == "map" && extname == Ex_GeoJSON)
             {
-                this.dataList.push(new GameData(fpath, 'map', JSON.parse(this.readFile(fpath))));
+                if (filename == "world_places")
+                {
+                    this.dataList.push(new GameData(fpath, 'map', 'place_map', JSON.parse(this.readFile(fpath))));
+                }
+                else if (filename == "world_states_provinces")
+                {
+                    this.dataList.push(new GameData(fpath, 'map', 'polygon_map', JSON.parse(this.readFile(fpath))));
+                }
+                else
+                {
+                    this.dataList.push(new GameData(fpath, 'map', 'any', JSON.parse(this.readFile(fpath))));
+                }
             }
-            else if(path.basename(path.resolve(fpath, "..")) == "gameData" && path.extname(fpath) == Ex_Toml)
+            else if(lastDirname == "gameData" && extname == Ex_Toml)
             {
-                this.dataList.push(new GameData(fpath, 'world', this.parseToml(fpath)));
+                if (filename == "ideologies")
+                {
+                    this.dataList.push(new GameData(fpath, 'world', 'ideology', this.parseToml(fpath)));
+                }
+                else if (filename == "nations")
+                {
+                    this.dataList.push(new GameData(fpath, 'world', 'nation', this.parseToml(fpath)));
+                }
+                else if (filename == "scenario")
+                {
+                    this.dataList.push(new GameData(fpath, 'world', 'scenario', this.parseToml(fpath)));
+                }
+                else
+                {
+                    this.dataList.push(new GameData(fpath, 'world', 'any', this.parseToml(fpath)));
+                }
             }
             else
             {
-                this.dataList.push(new GameData(fpath, 'unused', null));
+                this.dataList.push(new GameData(fpath, 'unused', 'any', null));
             }
         });
 
         console.log("Loaded");
         console.log(this.dataList);
+    }
+
+    public getDataList(): Array<GameData>
+    {
+        return this.dataList;
     }
 
     private getAllFilePath(rootDirPath: string): string[]
